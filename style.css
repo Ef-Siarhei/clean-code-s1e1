@@ -48,12 +48,13 @@ ul {
   padding: 0px;
 }
 
-li,
-h3 {
+.todo__list,
+.completed__list {
   list-style: none;
 }
 
-input,
+.checkbox,
+.task__input,
 .button {
   outline: none;
 }
