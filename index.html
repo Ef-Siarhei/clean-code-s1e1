@@ -21,41 +21,45 @@
     <section class="add-item">
       <h3 class="add-item__title"><label for="new-task" class="add-item__label">Add Item</label></h3>
       <div class="add-item__body">
-        <input id="new-task" class="task task__input" type="text">
+        <input id="new-task" class="task task__input add-item__input" type="text">
         <button class="button">Add</button>
       </div>
     </section>
 
     <section class="todo">
       <h3 class="todo__title">Todo</h3>
-      <ul id="todo__body">
+      <ul class="todo__body">
         <li class="todo__list">
           <input class="checkbox" type="checkbox">
           <label class="task task__label">Pay Bills</label>
           <input class="task task__input" type="text">
           <button class="button edit">Edit</button>
-          <button class="button delete"><img src="./remove.svg" alt="button cross"></button>
+          <button class="button delete">
+            <img class="delete__img" src="./remove.svg" alt="button cross">
+          </button>
         </li>
         <li class="todo__list edit-mode ">
           <input class="checkbox" type="checkbox">
           <label class="task task__label">Go Shopping</label>
           <input class="task task__input" type="text" value="Go Shopping">
           <button class="button edit">Save</button>
-          <button class="button delete"><img src="./remove.svg" alt="button cross"></button>
+          <button class="button delete">
+            <img class="delete__img" src="./remove.svg" alt="button cross">
+          </button>
         </li>
       </ul>
     </section>
 
     <section class="completed">
       <h3 class="completed__title">Completed</h3>
-      <ul id="completed__body">
+      <ul class="completed__body">
         <li class="completed__list">
           <input class="checkbox" type="checkbox" checked>
           <label class="task task__label">See the Doctor</label>
           <input class="task task__input" type="text">
           <button class="button edit">Edit</button>
           <button class="button delete">
-            <img src="./remove.svg" alt="button cross">
+            <img class="delete__img" src="./remove.svg" alt="button cross">
           </button>
         </li>
       </ul>

@@ -45,7 +45,8 @@ body {
   margin-bottom: 16px;
 }
 
-ul {
+.todo__body,
+.completed__body {
   margin: 0;
   padding: 0px;
 }
@@ -111,7 +112,7 @@ ul {
   margin: 0 0 20px;
 }
 
-#new-task {
+.add-item__input {
   width: 318px;
 }
 
@@ -146,18 +147,18 @@ ul {
   width: 226px;
 }
 
-.button.delete img {
+.delete__img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.button.delete img:hover {
+.delete__img:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-#completed__body .task__label {
+.completed__body .task__label {
   text-decoration: line-through;
   color: #888;
 }

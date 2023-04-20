@@ -10,8 +10,8 @@
 
 var taskInput = document.getElementById("new-task");//Add a new task.
 var addButton = document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder = document.getElementById("todo__body");//ul of #todo__body
-var completedTasksHolder = document.getElementById("completed__body");//completed__body
+var todoBody = document.querySelector(".todo__body");//ul of .todo__body
+var completedBody = document.querySelector(".completed__body");// .completed__body
 
 
 //New task list item
@@ -20,7 +20,7 @@ var createNewTaskElement = function (taskString) {
   var listItem = document.createElement("li");
 
   //input (checkbox)
-  var checkBox = document.createElement("input");//checkbx
+  var checkBox = document.createElement("input");//checkbox
   //label
   var label = document.createElement("label");//label
   //input (text)
@@ -48,6 +48,7 @@ var createNewTaskElement = function (taskString) {
   deleteButton.className = "delete button";
   deleteButtonImg.src = "./remove.svg";
   deleteButtonImg.alt = "button cross";
+  deleteButtonImg.className = "delete__img";
   deleteButton.appendChild(deleteButtonImg);
 
 
@@ -68,8 +69,8 @@ var addTask = function () {
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
 
-  //Append listItem to incompleteTaskHolder
-  incompleteTaskHolder.appendChild(listItem);
+  //Append listItem to todoBody
+  todoBody.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value = "";
@@ -122,9 +123,9 @@ var deleteTask = function () {
 var taskCompleted = function () {
   console.log("Complete Task...");
 
-  //Append the task list item to the #completed__body
+  //Append the task list item to the .completed__body
   var listItem = this.parentNode;
-  completedTasksHolder.appendChild(listItem);
+  completedBody.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
 }
@@ -134,9 +135,9 @@ var taskIncomplete = function () {
   console.log("Incomplete Task...");
   //Mark task as incomplete.
   //When the checkbox is unchecked
-  //Append the task list item to the #todo__body.
+  //Append the task list item to the .todo__body.
   var listItem = this.parentNode;
-  incompleteTaskHolder.appendChild(listItem);
+  todoBody.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 }
 
@@ -171,21 +172,21 @@ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
   checkBox.onchange = checkBoxEventHandler;
 }
 
-//cycle over incompleteTaskHolder ul list items
+//cycle over todoBody ul list items
 //for each list item
-for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
+for (var i = 0; i < todoBody.children.length; i++) {
 
   //bind events to list items chldren(tasksCompleted)
-  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
+  bindTaskEvents(todoBody.children[i], taskCompleted);
 }
 
 
 
 
-//cycle over completedTasksHolder ul list items
-for (var i = 0; i < completedTasksHolder.children.length; i++) {
+//cycle over completedBody ul list items
+for (var i = 0; i < completedBody.children.length; i++) {
   //bind events to list items chldren(tasksIncompleted)
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+  bindTaskEvents(completedBody.children[i], taskIncomplete);
 }
 
 
